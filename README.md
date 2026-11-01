@@ -2,7 +2,11 @@
 
 原生 macOS 状态栏应用，支持 macOS 13 及以上。使用 SwiftUI、AppKit 和 ServiceManagement，无第三方依赖。
 
+**[下载 DMG 安装包（Apple 芯片）](https://github.com/sanxuan-cai/sitdown/releases/download/v1.1.0/SitStandAssistant-1.1.0-macOS-arm64.dmg)**
+
 ## 使用
+
+从 [最新发布页面](https://github.com/sanxuan-cai/sitdown/releases/latest) 下载 DMG，打开后把「坐站助手」拖入 Applications 文件夹，再从应用程序中打开。当前提供 Apple 芯片版本，要求 macOS 13 及以上。本机临时签名版本尚未经过 Apple 公证，首次打开可能出现系统安全提示。
 
 打开 `dist/坐站助手.app`。首次打开显示设置窗口，以后从顶部状态栏进入。关闭窗口不会退出；请在状态栏菜单中选择「退出坐站助手」。
 
@@ -19,6 +23,6 @@
 
 ## 开发与打包
 
-使用 Xcode 15+ / Swift 5.9+，通过 Swift Package 打开本项目即可编辑。`scripts/build-app.sh` 生成当前 Mac 架构的 Release app 并使用本机临时签名；`swift test` 运行计时和统计回归测试。
+使用 Xcode 15+ / Swift 5.9+，通过 Swift Package 打开本项目即可编辑。`scripts/build-app.sh` 生成当前 Mac 架构的 Release app 并使用本机临时签名；`scripts/build-dmg.sh` 构建应用并生成可拖入 Applications 安装的 DMG；`swift test` 运行计时和统计回归测试。
 
 本机产物没有 Apple Developer ID 公证。向其他 Mac 公开分发之前，需要正式签名、公证并分别构建所需架构。跨桌面和全屏提醒使用 macOS 浮动辅助面板；应用退出、电脑关机或睡眠时无法提醒。
